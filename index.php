@@ -4,17 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Naturreservat</title>
 </head>
 <body>
 
-<form action="./result.php" method:="POST">
-    <input type="text" placeholder="Apa" name="apa">
-    <input type="text" placeholder="Apa" name="apa">
-    <input type="text" placeholder="Apa" name="apa">
-    <input type="text" placeholder="Apa" name="apa">
+<form action="result.php" method="POST">
+    <h1>Hur många utav varje djur finns i reservatet?</h1>
+    <h4>Apa:</h4>
+    <input type="text" placeholder="Fyll i antal apor" name="apa">
+    <h4>Giraff:</h4>
+    <input type="text" placeholder="Fyll i antal giraffer" name="giraff">
+    <h4>Tiger:</h4>
+    <input type="text" placeholder="Fyll i antal tigrar" name="tiger">
+    <h4>Kokosnöt:</h4>
+    <input type="text" placeholder="Fyll i antal kokosnötter" name="coconut">
 
-    <button>Skicka</button>
+    <input type="submit">
 
 </form>
 
