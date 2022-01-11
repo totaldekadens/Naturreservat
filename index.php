@@ -21,7 +21,6 @@
     <input type="text" placeholder="Fyll i antal kokosnötter" name="coconut">
 
     <input type="submit">
-
 </form>
 
 </body>

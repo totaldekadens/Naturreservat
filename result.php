@@ -16,8 +16,11 @@
 abstract class Animal {
     public $name;
 
+    /* Borde vara mer här , onclick? en ny funktion som skickar ut? Har nte riktigt skapat ett samband än mellan for och klass. VICTOR hjälp*/
+
     abstract function makeSound();
 }
+
 
 
 
@@ -26,14 +29,11 @@ abstract class Animal {
 class Apa extends Animal {
 
     function __construct($name){
-        
         $this-> name = $name;
-
     }
 
     public function makeSound() {
-
-        return "Apljud";
+        return "Woohahaha";
     }
 }
 
@@ -41,13 +41,10 @@ class Apa extends Animal {
 class Giraff extends Animal {
 
     function __construct($name){
-    
         $this-> name = $name;
-
     }
 
     public function makeSound() {
-
         return "Giraffljud";
     }
 }
@@ -60,24 +57,10 @@ class Tiger extends Animal {
     }
 
     public function makeSound() {
-        
         return "Roarr";
     }
 }
 
-
-class Coconut extends Animal {
-
-    function __construct(){
-        $this-> name = $name;
-    }
-
-    public function makeSound() {
-
-        alert("Kokoko");
-
-    }
-}
 
 
 
@@ -96,6 +79,13 @@ function getName(){
 }
 
 
+function whenClicked() {
+
+    echo "jag kom in i clicked";
+
+    /* Skall få in en alert med makeSound och unikt namn. Skall funktionen vara i en klass? */
+}
+
 
 
 
@@ -105,7 +95,7 @@ if($_SERVER["REQUEST_METHOD"]) {
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-        if($_POST['apa'] && $_POST['tiger'] && $_POST['giraff'] && $_POST['coconut']) {
+        if(isset($_POST['apa']) && isset($_POST['tiger']) && isset($_POST['giraff']) && isset($_POST['coconut'])) {
         
             $antalApa = $_POST['apa'];
             $antalTiger = $_POST['tiger'];
@@ -130,7 +120,7 @@ if($_SERVER["REQUEST_METHOD"]) {
             
                 $contentTiger = 'tiger.png';
                 
-                echo '<img src="'.$contentTiger.'">'.$randomName; 
+                echo '<img src="'.$contentTiger.'"onClick="'.whenClicked().'">'.$randomName;  /* Onclick funkar inte. Den laddas med en gång istället. VICTOR hjälp! något annat sätt?  // randomName skall flyttas till alert senare */
 
             }
 
@@ -156,11 +146,15 @@ if($_SERVER["REQUEST_METHOD"]) {
             
 
         } else {
-            echo "Du har inte fyllt i för samtliga djur. Backa och gör om";
+            echo "Du har inte fyllt i antal för samtliga djur. Backa och gör om";
         }
 
+    } else {
+        echo "Du har inte använt POST. Dubbelkolla attribut i <form> på sidan index.php";
     }
-    
+
+} else {
+    echo "Du har satt någon REQUEST METHOD. Dubbelkolla attribut i <form> på sidan index.php";
 }
 ?>
     
