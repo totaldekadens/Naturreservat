@@ -16,12 +16,10 @@
 abstract class Animal {
     public $name;
     public $picture;
-    /* Borde vara mer här , onclick? en ny funktion som skickar ut? samband mellan for och klass. VICTOR hjälp*/
 
     abstract function makeSound();
+
 }
-
-
 
 
 /* SubClass */
@@ -31,12 +29,20 @@ class Apa extends Animal {
     function __construct($picture, $name){
         $this-> name = $name;
         $this-> picture = $picture;
+        $this-> makeSound();
+
+        echo $this -> name . $this -> picture . $this -> makeSound(); 
     }
 
     public function makeSound() {
         return "Woohahaha";
     }
+
+
+
 }
+
+
 
 
 class Giraff extends Animal {
@@ -44,6 +50,9 @@ class Giraff extends Animal {
     function __construct($picture, $name){
         $this-> name = $name;
         $this-> picture = $picture;
+        $this-> makeSound();
+
+        echo $this -> name . $this -> picture . $this -> makeSound(); 
     }
 
     public function makeSound() {
@@ -57,15 +66,15 @@ class Tiger extends Animal {
     function __construct($picture, $name){
         $this-> name = $name;
         $this-> picture = $picture;
+        $this-> makeSound();
+
+        echo $this -> name . $this -> picture . $this -> makeSound(); 
     }
 
     public function makeSound() {
         return "Roarr";
     }
 }
-
-
-
 
 
 
@@ -105,14 +114,13 @@ if($_SERVER["REQUEST_METHOD"]) {
             $antalGiraff = $_POST['giraff'];
             $antalCoconut = $_POST['coconut'];
 
-            
+
             for ($i=0; $i < $antalApa ; $i++) { 
 
                 $randomName = getName();
                 $content = 'apa.png';
                 $ape = new Apa ('<img src="'.$content.'">', $randomName);
 
-                echo $ape -> name . $ape -> picture; 
             }
 
             for ($i=0; $i < $antalTiger ; $i++) { 
@@ -121,7 +129,6 @@ if($_SERVER["REQUEST_METHOD"]) {
                 $contentTiger = 'tiger.png';
                 $tigger = new Tiger ('<img src="'.$contentTiger.'">', $randomName);
 
-                echo $tigger -> name . $tigger -> picture; 
             }
 
             for ($i=0; $i < $antalGiraff ; $i++) { 
@@ -129,8 +136,6 @@ if($_SERVER["REQUEST_METHOD"]) {
                 $randomName = getName();
                 $contentGiraff = 'giraff.png';
                 $giraffen = new Giraff ('<img src="'.$contentGiraff.'">', $randomName);
-
-                echo $giraffen -> name . $giraffen -> picture; 
                 
             }
             
