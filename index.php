@@ -10,7 +10,7 @@
 <body>
 
 <form action="result.php" method="POST">
-    <h1>Hur många utav varje djur finns i reservatet?</h1>
+    <h1>Hur många utav varje djur/nöt finns i reservatet?</h1>
     <h4>Apa:</h4>
     <input type="text" placeholder="Fyll i antal apor" name="apa">
     <h4>Giraff:</h4>

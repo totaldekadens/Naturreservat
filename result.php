@@ -15,8 +15,8 @@
 
 abstract class Animal {
     public $name;
-
-    /* Borde vara mer här , onclick? en ny funktion som skickar ut? Har nte riktigt skapat ett samband än mellan for och klass. VICTOR hjälp*/
+    public $picture;
+    /* Borde vara mer här , onclick? en ny funktion som skickar ut? samband mellan for och klass. VICTOR hjälp*/
 
     abstract function makeSound();
 }
@@ -28,8 +28,9 @@ abstract class Animal {
 
 class Apa extends Animal {
 
-    function __construct($name){
+    function __construct($picture, $name){
         $this-> name = $name;
+        $this-> picture = $picture;
     }
 
     public function makeSound() {
@@ -40,8 +41,9 @@ class Apa extends Animal {
 
 class Giraff extends Animal {
 
-    function __construct($name){
+    function __construct($picture, $name){
         $this-> name = $name;
+        $this-> picture = $picture;
     }
 
     public function makeSound() {
@@ -52,8 +54,9 @@ class Giraff extends Animal {
 
 class Tiger extends Animal {
 
-    function __construct($name){
+    function __construct($picture, $name){
         $this-> name = $name;
+        $this-> picture = $picture;
     }
 
     public function makeSound() {
@@ -79,12 +82,12 @@ function getName(){
 }
 
 
-function whenClicked() {
+/* function whenClicked() {
 
     echo "jag kom in i clicked";
 
-    /* Skall få in en alert med makeSound och unikt namn. Skall funktionen vara i en klass? */
-}
+   
+} */
 
 
 
@@ -110,18 +113,23 @@ if($_SERVER["REQUEST_METHOD"]) {
 
                 $content = 'apa.png';
                 
-                echo '<img src="'.$content.'">'.$randomName; 
 
+                $ape = new Apa ('<img src="'.$content.'">', $randomName);
+
+                echo $ape -> name . $ape -> picture; 
             }
+
+            
 
             for ($i=0; $i < $antalTiger ; $i++) { 
                 
                 $randomName = getName();
             
                 $contentTiger = 'tiger.png';
-                
-                echo '<img src="'.$contentTiger.'"onClick="'.whenClicked().'">'.$randomName;  /* Onclick funkar inte. Den laddas med en gång istället. VICTOR hjälp! något annat sätt?  // randomName skall flyttas till alert senare */
 
+                $tigger = new Tiger ('<img src="'.$contentTiger.'">', $randomName);
+
+                echo $tigger -> name . $tigger -> picture; 
             }
 
 
@@ -130,8 +138,11 @@ if($_SERVER["REQUEST_METHOD"]) {
                 $randomName = getName();
                 
                 $contentGiraff = 'giraff.png';
+
+                $giraffen = new Giraff ('<img src="'.$contentGiraff.'">', $randomName);
+
+                echo $giraffen -> name . $giraffen -> picture; 
                 
-                echo '<img src="'.$contentGiraff.'">'.$randomName; 
             }
             
 
