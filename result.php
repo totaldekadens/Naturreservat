@@ -28,14 +28,11 @@ abstract class Animal {
 /* SubClass */
 
 class Apa extends Animal {
-
     function __construct($picture, $name){
         $this-> name = $name;
         $this-> picture = $picture;
         $this-> makeSound();
-
-        echo $this -> name . $this -> picture . $this -> makeSound();  // Behöver få in ljud och namn i en alert via onclick
-
+        $this-> renderApa();
 
     }
 
@@ -43,10 +40,21 @@ class Apa extends Animal {
         return "Woohahaha";
     }
 
+    public function Click() {
+        $text = 'alert("Name: ';
+        $text .= $this->name;
+        $text .= " Sound: ";
+        $text .= $this->makeSound();
+        $text .= '");';
+        return $text;
+    }
+
+    public function renderApa() {
+        echo "<img src='".$this->picture."' onClick='".$this->Click()."'/>";
+    }
 
 
 }
-
 
 
 
@@ -56,12 +64,25 @@ class Giraff extends Animal {
         $this-> name = $name;
         $this-> picture = $picture;
         $this-> makeSound();
+        $this-> renderGiraff();
 
-        echo $this -> name . $this -> picture . $this -> makeSound(); // Behöver få in ljud och namn i en alert via onclick
     }
 
     public function makeSound() {
         return "Giraffljud";
+    }
+
+    public function Click() {
+        $text = 'alert("Name: ';
+        $text .= $this->name;
+        $text .= " Sound: ";
+        $text .= $this->makeSound();
+        $text .= '");';
+        return $text;
+    }
+
+    public function renderGiraff() {
+        echo "<img src='".$this->picture."' onClick='".$this->Click()."'/>";
     }
 }
     
@@ -72,12 +93,25 @@ class Tiger extends Animal {
         $this-> name = $name;
         $this-> picture = $picture;
         $this-> makeSound();
+        $this-> renderTiger();
 
-        echo $this -> name . $this -> picture . $this -> makeSound(); // Behöver få in ljud och namn i en alert via onclick
     }
 
     public function makeSound() {
         return "Roarr";
+    }
+
+    public function Click() {
+        $text = 'alert("Name: ';
+        $text .= $this->name;
+        $text .= " Sound: ";
+        $text .= $this->makeSound();
+        $text .= '");';
+        return $text;
+    }
+
+    public function renderTiger() {
+        echo "<img src='".$this->picture."' onClick='".$this->Click()."'/>";
     }
 }
 
@@ -86,7 +120,6 @@ class Tiger extends Animal {
 /* Fetching random name from API and returns it to the function */
 function getName(){
     $rawData = file_get_contents("https://randomuser.me/api/");
-
     $arr = json_decode($rawData, true);
     
     foreach ($arr['results'] as $yaay) {
@@ -102,9 +135,7 @@ function getName(){
 /* IF */
 
 if($_SERVER["REQUEST_METHOD"]) {
-
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
         if(isset($_POST['apa']) && isset($_POST['tiger']) && isset($_POST['giraff']) && isset($_POST['coconut'])) {
         
             $antalApa = $_POST['apa'];
@@ -116,42 +147,30 @@ if($_SERVER["REQUEST_METHOD"]) {
             for ($i=0; $i < $antalApa ; $i++) { 
 
                 $randomName = getName();
-                $content = 'apa.png';
-                $ape = new Apa ('<img class="clickApa" src="'.$content.'">', $randomName);
-
+                $ape = new Apa ('apa.png', $randomName); 
             }
-
             for ($i=0; $i < $antalTiger ; $i++) { 
                 
                 $randomName = getName();
-                $contentTiger = 'tiger.png';
-                $tigger = new Tiger ('<img src="'.$contentTiger.'">', $randomName);
-
+                $tigger = new Tiger ('tiger.png', $randomName); 
             }
-
             for ($i=0; $i < $antalGiraff ; $i++) { 
-                
+           
                 $randomName = getName();
-                $contentGiraff = 'giraff.png';
-                $giraffen = new Giraff ('<img src="'.$contentGiraff.'">', $randomName);
-                
+                $giraffen = new Giraff ('giraff.png', $randomName);   
             }
             
             for ($i=0; $i < $antalCoconut ; $i++) { 
                 
                 $contentCoco = 'coconut.png';
-                
                 echo '<img src="'.$contentCoco.'">'; 
             }
-
         } else {
             echo "Du har inte fyllt i antal för samtliga djur. Backa och gör om";
         }
-
     } else {
         echo "Du har inte använt POST. Dubbelkolla attribut i <form> på sidan index.php";
     }
-
 } else {
     echo "Du har satt någon REQUEST METHOD. Dubbelkolla attribut i <form> på sidan index.php";
 }
