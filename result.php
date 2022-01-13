@@ -5,11 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script defer src="logic.js"></script>
     <title>Resultat</title>
 </head>
 <body>
 
 <?php
+
+
 
 /* SuperClass */
 
@@ -31,7 +34,9 @@ class Apa extends Animal {
         $this-> picture = $picture;
         $this-> makeSound();
 
-        echo $this -> name . $this -> picture . $this -> makeSound(); 
+        echo $this -> name . $this -> picture . $this -> makeSound();  // Behöver få in ljud och namn i en alert via onclick
+
+
     }
 
     public function makeSound() {
@@ -52,7 +57,7 @@ class Giraff extends Animal {
         $this-> picture = $picture;
         $this-> makeSound();
 
-        echo $this -> name . $this -> picture . $this -> makeSound(); 
+        echo $this -> name . $this -> picture . $this -> makeSound(); // Behöver få in ljud och namn i en alert via onclick
     }
 
     public function makeSound() {
@@ -68,7 +73,7 @@ class Tiger extends Animal {
         $this-> picture = $picture;
         $this-> makeSound();
 
-        echo $this -> name . $this -> picture . $this -> makeSound(); 
+        echo $this -> name . $this -> picture . $this -> makeSound(); // Behöver få in ljud och namn i en alert via onclick
     }
 
     public function makeSound() {
@@ -91,13 +96,6 @@ function getName(){
 }
 
 
-/* function whenClicked() {
-
-    echo "jag kom in i clicked";
-
-   
-} */
-
 
 
 
@@ -119,7 +117,7 @@ if($_SERVER["REQUEST_METHOD"]) {
 
                 $randomName = getName();
                 $content = 'apa.png';
-                $ape = new Apa ('<img src="'.$content.'">', $randomName);
+                $ape = new Apa ('<img class="clickApa" src="'.$content.'">', $randomName);
 
             }
 
@@ -157,6 +155,9 @@ if($_SERVER["REQUEST_METHOD"]) {
 } else {
     echo "Du har satt någon REQUEST METHOD. Dubbelkolla attribut i <form> på sidan index.php";
 }
+
+
+
 ?>
     
 </body>
