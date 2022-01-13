@@ -22,6 +22,18 @@ abstract class Animal {
 
     abstract function makeSound();
 
+    public function Click() {
+        $text = 'alert("Name: ';
+        $text .= $this->name;
+        $text .= " Sound: ";
+        $text .= $this->makeSound();
+        $text .= '");';
+        return $text;
+    }
+
+    public function render() {
+        echo "<img src='".$this->picture."' onClick='".$this->Click()."'/>";
+    }
 }
 
 
@@ -32,28 +44,12 @@ class Apa extends Animal {
         $this-> name = $name;
         $this-> picture = $picture;
         $this-> makeSound();
-        $this-> renderApa();
-
+        $this-> render();
     }
 
     public function makeSound() {
         return "Woohahaha";
     }
-
-    public function Click() {
-        $text = 'alert("Name: ';
-        $text .= $this->name;
-        $text .= " Sound: ";
-        $text .= $this->makeSound();
-        $text .= '");';
-        return $text;
-    }
-
-    public function renderApa() {
-        echo "<img src='".$this->picture."' onClick='".$this->Click()."'/>";
-    }
-
-
 }
 
 
@@ -64,25 +60,11 @@ class Giraff extends Animal {
         $this-> name = $name;
         $this-> picture = $picture;
         $this-> makeSound();
-        $this-> renderGiraff();
-
+        $this-> render();
     }
 
     public function makeSound() {
         return "Giraffljud";
-    }
-
-    public function Click() {
-        $text = 'alert("Name: ';
-        $text .= $this->name;
-        $text .= " Sound: ";
-        $text .= $this->makeSound();
-        $text .= '");';
-        return $text;
-    }
-
-    public function renderGiraff() {
-        echo "<img src='".$this->picture."' onClick='".$this->Click()."'/>";
     }
 }
     
@@ -93,25 +75,11 @@ class Tiger extends Animal {
         $this-> name = $name;
         $this-> picture = $picture;
         $this-> makeSound();
-        $this-> renderTiger();
-
+        $this-> render();
     }
 
     public function makeSound() {
         return "Roarr";
-    }
-
-    public function Click() {
-        $text = 'alert("Name: ';
-        $text .= $this->name;
-        $text .= " Sound: ";
-        $text .= $this->makeSound();
-        $text .= '");';
-        return $text;
-    }
-
-    public function renderTiger() {
-        echo "<img src='".$this->picture."' onClick='".$this->Click()."'/>";
     }
 }
 
