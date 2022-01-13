@@ -117,6 +117,7 @@ class Tiger extends Animal {
 
 
 
+
 /* Fetching random name from API and returns it to the function */
 function getName(){
     $rawData = file_get_contents("https://randomuser.me/api/");
@@ -147,22 +148,22 @@ if($_SERVER["REQUEST_METHOD"]) {
             for ($i=0; $i < $antalApa ; $i++) { 
 
                 $randomName = getName();
-                $ape = new Apa ('apa.png', $randomName); 
+                $ape = new Apa ('/assets/apa.png', $randomName); 
             }
             for ($i=0; $i < $antalTiger ; $i++) { 
                 
                 $randomName = getName();
-                $tigger = new Tiger ('tiger.png', $randomName); 
+                $tigger = new Tiger ('/assets/tiger.png', $randomName); 
             }
             for ($i=0; $i < $antalGiraff ; $i++) { 
            
                 $randomName = getName();
-                $giraffen = new Giraff ('giraff.png', $randomName);   
+                $giraffen = new Giraff ('/assets/giraff.png', $randomName);   
             }
             
             for ($i=0; $i < $antalCoconut ; $i++) { 
                 
-                $contentCoco = 'coconut.png';
+                $contentCoco = '/assets/coconut.png';
                 echo '<img src="'.$contentCoco.'">'; 
             }
         } else {
