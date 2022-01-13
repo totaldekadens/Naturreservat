@@ -106,55 +106,40 @@ if($_SERVER["REQUEST_METHOD"]) {
             $antalCoconut = $_POST['coconut'];
 
             
-
             for ($i=0; $i < $antalApa ; $i++) { 
 
                 $randomName = getName();
-
                 $content = 'apa.png';
-                
-
                 $ape = new Apa ('<img src="'.$content.'">', $randomName);
 
                 echo $ape -> name . $ape -> picture; 
             }
 
-            
-
             for ($i=0; $i < $antalTiger ; $i++) { 
                 
                 $randomName = getName();
-            
                 $contentTiger = 'tiger.png';
-
                 $tigger = new Tiger ('<img src="'.$contentTiger.'">', $randomName);
 
                 echo $tigger -> name . $tigger -> picture; 
             }
 
-
             for ($i=0; $i < $antalGiraff ; $i++) { 
                 
                 $randomName = getName();
-                
                 $contentGiraff = 'giraff.png';
-
                 $giraffen = new Giraff ('<img src="'.$contentGiraff.'">', $randomName);
 
                 echo $giraffen -> name . $giraffen -> picture; 
                 
             }
             
-
             for ($i=0; $i < $antalCoconut ; $i++) { 
                 
                 $contentCoco = 'coconut.png';
                 
                 echo '<img src="'.$contentCoco.'">'; 
             }
-                
-            
-            
 
         } else {
             echo "Du har inte fyllt i antal för samtliga djur. Backa och gör om";
