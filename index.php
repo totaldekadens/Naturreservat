@@ -12,9 +12,6 @@
 
 session_start();
 
-error_log(serialize($_SESSION));
-
-
 if(isset($_SESSION["amountAnimals"])) {
     
     header("Location: result.php");
@@ -24,7 +21,6 @@ if(isset($_SESSION["amountAnimals"])) {
     header("Location: settings.php");
     exit();
 }
-
 
 ?>
 
