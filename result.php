@@ -10,8 +10,25 @@
 </head>
 <body>
 
+<a href="result.php?click=true">RESET</a>
+
 <?php
 
+session_start();
+
+
+
+function resetReservation() {
+
+    session_destroy();
+
+    header("Location: settings.php");
+}
+
+if(isset($_GET['click'])) {
+
+    resetReservation();
+}
 
 
 /* SuperClass */
@@ -98,48 +115,65 @@ function getName(){
 }
 
 
-
-
-
 /* IF */
 
 if($_SERVER["REQUEST_METHOD"]) {
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        if(isset($_POST['apa']) && isset($_POST['tiger']) && isset($_POST['giraff']) && isset($_POST['coconut'])) {
+
+
+    if (isset($_SERVER["REQUEST_METHOD"]) == "POST") {
+
         
-            $antalApa = $_POST['apa'];
-            $antalTiger = $_POST['tiger'];
-            $antalGiraff = $_POST['giraff'];
-            $antalCoconut = $_POST['coconut'];
+        if(isset($_POST['apa']) && isset($_POST['tiger']) && isset($_POST['giraff']) && isset($_POST['coconut']) || isset($_SESSION["amountAnimals"])) {
+        
+        
 
+            if(!$_SESSION["amountAnimals"]) {
 
-            for ($i=0; $i < $antalApa ; $i++) { 
+                $animals = array (
+                "amountApa" => $_POST['apa'],
+                "amountTiger" => $_POST['tiger'],
+                "amountGiraff" => $_POST['giraff'],
+                "amountCoconut" => $_POST['coconut']
+                );
+            
+                $_SESSION['amountAnimals'] = $animals;
+
+            }
+
+            $animals = $_SESSION['amountAnimals'];
+            
+            for ($i=0; $i < $animals['amountApa'] ; $i++) { 
 
                 $randomName = getName();
                 $ape = new Apa ('/assets/apa.png', $randomName); 
             }
-            for ($i=0; $i < $antalTiger ; $i++) { 
+            for ($i=0; $i < $animals['amountTiger'] ; $i++) { 
                 
                 $randomName = getName();
                 $tigger = new Tiger ('/assets/tiger.png', $randomName); 
             }
-            for ($i=0; $i < $antalGiraff ; $i++) { 
-           
+            for ($i=0; $i < $animals['amountGiraff'] ; $i++) { 
+        
                 $randomName = getName();
                 $giraffen = new Giraff ('/assets/giraff.png', $randomName);   
             }
             
-            for ($i=0; $i < $antalCoconut ; $i++) { 
+            for ($i=0; $i < $animals['amountCoconut'] ; $i++) { 
                 
                 $contentCoco = '/assets/coconut.png';
                 echo '<img src="'.$contentCoco.'">'; 
+
             }
+             
+
         } else {
             echo "Du har inte fyllt i antal för samtliga djur. Backa och gör om";
         }
+
     } else {
         echo "Du har inte använt POST. Dubbelkolla attribut i <form> på sidan index.php";
     }
+
 } else {
     echo "Du har satt någon REQUEST METHOD. Dubbelkolla attribut i <form> på sidan index.php";
 }
