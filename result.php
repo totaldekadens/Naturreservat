@@ -9,16 +9,16 @@
     <title>Resultat</title>
 </head>
 <body>
-
-<a href="result.php?click=true">RESET</a>
+<!-- Reset Link -->
+<a href="result.php?click=true">RESET</a><br><br><br><br>
 
 <?php
 
 session_start();
 
 
-
-function resetReservation() {
+/* Reset Link */
+function resetNatureReserve() {
 
     session_destroy();
 
@@ -27,8 +27,11 @@ function resetReservation() {
 
 if(isset($_GET['click'])) {
 
-    resetReservation();
+    resetNatureReserve();
 }
+
+
+
 
 
 /* SuperClass */
@@ -81,7 +84,7 @@ class Giraff extends Animal {
     }
 
     public function makeSound() {
-        return "Giraffljud";
+        return "Smacksmack";
     }
 }
     
@@ -99,6 +102,50 @@ class Tiger extends Animal {
         return "Roarr";
     }
 }
+
+class Lejon extends Animal {
+
+    function __construct($picture, $name){
+        $this-> name = $name;
+        $this-> picture = $picture;
+        $this-> makeSound();
+        $this-> render();
+    }
+
+    public function makeSound() {
+        return "Roarr";
+    }
+}
+
+class Antiloop extends Animal {
+
+    function __construct($picture, $name){
+        $this-> name = $name;
+        $this-> picture = $picture;
+        $this-> makeSound();
+        $this-> render();
+    }
+
+    public function makeSound() {
+        return "Gnägggnägg";
+    }
+}
+
+class Gorilla extends Animal {
+
+    function __construct($picture, $name){
+        $this-> name = $name;
+        $this-> picture = $picture;
+        $this-> makeSound();
+        $this-> render();
+    }
+
+    public function makeSound() {
+        return "WOHOHAAHAHAHA";
+    }
+}
+
+
 
 
 
@@ -118,22 +165,22 @@ function getName(){
 /* IF */
 
 if($_SERVER["REQUEST_METHOD"]) {
-
-
     if (isset($_SERVER["REQUEST_METHOD"]) == "POST") {
-
-        
         if(isset($_POST['apa']) && isset($_POST['tiger']) && isset($_POST['giraff']) && isset($_POST['coconut']) || isset($_SESSION["amountAnimals"])) {
         
-        
-
             if(!$_SESSION["amountAnimals"]) {
 
                 $animals = array (
                 "amountApa" => $_POST['apa'],
                 "amountTiger" => $_POST['tiger'],
                 "amountGiraff" => $_POST['giraff'],
-                "amountCoconut" => $_POST['coconut']
+                "amountCoconut" => $_POST['coconut'],
+                "amountLejon" => $_POST['lejon'],
+                "amountAntiloop" => $_POST['antiloop'],
+                "amountGorilla" => $_POST['gorilla'],
+                "amountPalm" => $_POST['palm'],
+                "amountGran" => $_POST['gran'],
+                "amountRos" => $_POST['ros']
                 );
             
                 $_SESSION['amountAnimals'] = $animals;
@@ -147,27 +194,62 @@ if($_SERVER["REQUEST_METHOD"]) {
                 $randomName = getName();
                 $ape = new Apa ('/assets/apa.png', $randomName); 
             }
-            for ($i=0; $i < $animals['amountTiger'] ; $i++) { 
-                
-                $randomName = getName();
-                $tigger = new Tiger ('/assets/tiger.png', $randomName); 
-            }
             for ($i=0; $i < $animals['amountGiraff'] ; $i++) { 
         
                 $randomName = getName();
                 $giraffen = new Giraff ('/assets/giraff.png', $randomName);   
             }
-            
+            for ($i=0; $i < $animals['amountTiger'] ; $i++) { 
+                
+                $randomName = getName();
+                $tigger = new Tiger ('/assets/tiger.png', $randomName); 
+            }
+
+            for ($i=0; $i < $animals['amountLejon'] ; $i++) { 
+        
+                $randomName = getName();
+                $lejonet = new Lejon ('/assets/lejon.png', $randomName);   
+            }
+            for ($i=0; $i < $animals['amountAntiloop'] ; $i++) { 
+        
+                $randomName = getName();
+                $antiloopen = new Antiloop ('/assets/antiloop.png', $randomName);   
+            }
+            for ($i=0; $i < $animals['amountGorilla'] ; $i++) { 
+        
+                $randomName = getName();
+                $gorillan = new Gorilla ('/assets/gorilla.png', $randomName);   
+            }
+
             for ($i=0; $i < $animals['amountCoconut'] ; $i++) { 
                 
                 $contentCoco = '/assets/coconut.png';
                 echo '<img src="'.$contentCoco.'">'; 
-
             }
-             
+
+            for ($i=0; $i < $animals['amountPalm'] ; $i++) { 
+                
+                $contentPalm = '/assets/palm.png';
+                echo '<img src="'.$contentPalm.'">'; 
+            }
+
+            for ($i=0; $i < $animals['amountGran'] ; $i++) { 
+                
+                $contentGran = '/assets/gran.png';
+                echo '<img src="'.$contentGran.'">'; 
+            }
+
+            for ($i=0; $i < $animals['amountRos'] ; $i++) { 
+                
+                $contentRos = '/assets/ros.png';
+                echo '<img src="'.$contentRos.'">'; 
+            }
+
 
         } else {
-            echo "Du har inte fyllt i antal för samtliga djur. Backa och gör om";
+
+            header("Location: settings.php");
+            exit();
         }
 
     } else {
@@ -175,9 +257,8 @@ if($_SERVER["REQUEST_METHOD"]) {
     }
 
 } else {
-    echo "Du har satt någon REQUEST METHOD. Dubbelkolla attribut i <form> på sidan index.php";
+    echo "Du har inte satt någon REQUEST METHOD. Dubbelkolla attribut i <form> på sidan index.php";
 }
-
 
 
 ?>
