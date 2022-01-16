@@ -13,7 +13,7 @@ Uppgift 1. - Klar
 
 * När man klickar på ett djur ska dom göra ett läte med Alert, varje typ av djur ska göra ett typ av läte. Varje enskilt djur ska ha ett unikt namn som ska stå med i Alerten.
 
-Uppgift 2. - Påbörjad
+Uppgift 2. - Klar
 
 * Döp namn på er nuvarande index.php till settings.php och gör en ny index.php, settings.php ska alltså innehålla formuläret.
 * Om man inte besökt settings.php och skickat formuläret, så ska man inte kunna se results.php.
