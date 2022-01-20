@@ -195,7 +195,7 @@ if($_SERVER["REQUEST_METHOD"]) {
             for ($i=0; $i < $animals['amountApa'] ; $i++) { 
 
                 $randomName = getName();
-                $ape = new Apa ('/assets/apa.png', $randomName); 
+                $ape = new Apa ('./assets/apa.png', $randomName); 
 
                 array_push($animals, $ape);
 
@@ -206,51 +206,51 @@ if($_SERVER["REQUEST_METHOD"]) {
             for ($i=0; $i < $animals['amountGiraff'] ; $i++) { 
         
                 $randomName = getName();
-                $giraffen = new Giraff ('/assets/giraff.png', $randomName);   
+                $giraffen = new Giraff ('./assets/giraff.png', $randomName);   
             }
             for ($i=0; $i < $animals['amountTiger'] ; $i++) { 
                 
                 $randomName = getName();
-                $tigger = new Tiger ('/assets/tiger.png', $randomName); 
+                $tigger = new Tiger ('./assets/tiger.png', $randomName); 
             }
 
             for ($i=0; $i < $animals['amountLejon'] ; $i++) { 
         
                 $randomName = getName();
-                $lejonet = new Lejon ('/assets/lejon.png', $randomName);   
+                $lejonet = new Lejon ('./assets/lejon.png', $randomName);   
             }
             for ($i=0; $i < $animals['amountAntiloop'] ; $i++) { 
         
                 $randomName = getName();
-                $antiloopen = new Antiloop ('/assets/antiloop.png', $randomName);   
+                $antiloopen = new Antiloop ('./assets/antiloop.png', $randomName);   
             }
             for ($i=0; $i < $animals['amountGorilla'] ; $i++) { 
         
                 $randomName = getName();
-                $gorillan = new Gorilla ('/assets/gorilla.png', $randomName);   
+                $gorillan = new Gorilla ('./assets/gorilla.png', $randomName);   
             }
 
             for ($i=0; $i < $animals['amountCoconut'] ; $i++) { 
                 
-                $contentCoco = '/assets/coconut.png';
+                $contentCoco = './assets/coconut.png';
                 echo '<img src="'.$contentCoco.'">'; 
             }
 
             for ($i=0; $i < $animals['amountPalm'] ; $i++) { 
                 
-                $contentPalm = '/assets/palm.png';
+                $contentPalm = './assets/palm.png';
                 echo '<img src="'.$contentPalm.'">'; 
             }
 
             for ($i=0; $i < $animals['amountGran'] ; $i++) { 
                 
-                $contentGran = '/assets/gran.png';
+                $contentGran = './assets/gran.png';
                 echo '<img src="'.$contentGran.'">'; 
             }
 
             for ($i=0; $i < $animals['amountRos'] ; $i++) { 
                 
-                $contentRos = '/assets/ros.png';
+                $contentRos = './assets/ros.png';
                 echo '<img src="'.$contentRos.'">'; 
             }
 

@@ -31,46 +31,46 @@ if(isset($_SESSION["amountAnimals"])) {
         <div class="animals">
             <div class="check">
                 <h4>Apa:</h4>
-                <input type="text" name="apa">
+                <input type="number" name="apa">
             </div>
             <div class="check">
                 <h4>Giraff:</h4>
-                <input type="text" name="giraff">
+                <input type="number" name="giraff">
             </div>
             <div class="check">
                 <h4>Tiger:</h4>
-                <input type="text" name="tiger">
+                <input type="number" name="tiger">
             </div>            
             <div class="check">
                 <h4>Lejon:</h4>
-                <input type="text" name="lejon">
+                <input type="number" name="lejon">
             </div>            
             <div class="check">
                 <h4>Antiloop:</h4>
-                <input type="text" name="antiloop">
+                <input type="number" name="antiloop">
             </div>            
             <div class="check">
                 <h4>Gorilla:</h4>
-                <input type="text" name="gorilla">
+                <input type="number" name="gorilla">
             </div>              
         </div> 
         <div class="title"><h2>Övrigt</h2></div>
         <div class="other">
             <div class="check">
                 <h4>Kokosnöt:</h4>
-                <input type="text" name="coconut">
+                <input type="number" name="coconut">
             </div>  
             <div class="check">
                 <h4>Palmträd:</h4>
-                <input type="text" name="palm">
+                <input type="number" name="palm">
             </div>  
             <div class="check">
                 <h4>Gran:</h4>
-                <input type="text" name="gran">
+                <input type="number" name="gran">
             </div>  
             <div class="check">
                 <h4>Ros:</h4>
-                <input type="text" name="ros">
+                <input type="number" name="ros">
             </div>
         </div>
     </div>
