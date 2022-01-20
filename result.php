@@ -10,8 +10,9 @@
 </head>
 <body>
 <!-- Reset Link -->
-<a href="result.php?click=true">RESET</a><br><br><br><br>
-
+<div class="hej">
+<a class="resetButton" href="result.php?click=true">RESET</a>
+</div>
 <?php
 
 session_start();
@@ -43,9 +44,9 @@ abstract class Animal {
     abstract function makeSound();
 
     public function Click() {
-        $text = 'alert("Name: ';
+        $text = 'alert(" ';
         $text .= $this->name;
-        $text .= " Sound: ";
+        $text .= " säger: ";
         $text .= $this->makeSound();
         $text .= '");';
         return $text;
@@ -68,7 +69,7 @@ class Apa extends Animal {
     }
 
     public function makeSound() {
-        return "Woohahaha";
+        return "Woohahaha!";
     }
 }
 
@@ -84,7 +85,7 @@ class Giraff extends Animal {
     }
 
     public function makeSound() {
-        return "Smacksmack";
+        return "Smacksmack!";
     }
 }
     
@@ -99,7 +100,7 @@ class Tiger extends Animal {
     }
 
     public function makeSound() {
-        return "Roarr";
+        return "Roarr!";
     }
 }
 
@@ -113,7 +114,7 @@ class Lejon extends Animal {
     }
 
     public function makeSound() {
-        return "Roarr";
+        return "Roarr!";
     }
 }
 
@@ -127,7 +128,7 @@ class Antiloop extends Animal {
     }
 
     public function makeSound() {
-        return "Gnägggnägg";
+        return "Gnägggnägg!";
     }
 }
 
@@ -141,7 +142,7 @@ class Gorilla extends Animal {
     }
 
     public function makeSound() {
-        return "WOHOHAAHAHAHA";
+        return "Hoogachacka";
     }
 }
 
@@ -183,6 +184,8 @@ if($_SERVER["REQUEST_METHOD"]) {
                 "amountRos" => $_POST['ros']
                 );
             
+
+                
                 $_SESSION['amountAnimals'] = $animals;
 
             }
@@ -193,7 +196,13 @@ if($_SERVER["REQUEST_METHOD"]) {
 
                 $randomName = getName();
                 $ape = new Apa ('/assets/apa.png', $randomName); 
+
+                array_push($animals, $ape);
+
+                $_SESSION['renderanimal'] = $animals;
+                $animals = $_SESSION['renderanimal'];
             }
+
             for ($i=0; $i < $animals['amountGiraff'] ; $i++) { 
         
                 $randomName = getName();
@@ -245,6 +254,14 @@ if($_SERVER["REQUEST_METHOD"]) {
                 echo '<img src="'.$contentRos.'">'; 
             }
 
+
+            error_log(serialize($animals)); 
+
+            error_log(serialize($_SESSION));
+
+/*             foreach($animals as $listOfAnimals){
+                $listOfAnimals ->render();
+            } */
 
         } else {
 

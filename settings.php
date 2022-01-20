@@ -23,31 +23,58 @@ if(isset($_SESSION["amountAnimals"])) {
 ?>
 
 <form action="result.php" method="POST">
+  
     <h1>Hur många utav nedan finns i reservatet?</h1>
     <p>Fyll i antal med siffror. OBS! decimaltecken är ej tillåtet.</p>
-    <h4>Apa:</h4>
-    <input type="text" placeholder="Fyll i antal apor" name="apa">
-    <h4>Giraff:</h4>
-    <input type="text" placeholder="Fyll i antal giraffer" name="giraff">
-    <h4>Tiger:</h4>
-    <input type="text" placeholder="Fyll i antal tigrar" name="tiger">
-    <h4>Lejon:</h4>
-    <input type="text" placeholder="Fyll i antal lejon" name="lejon">
-    <h4>Antiloop:</h4>
-    <input type="text" placeholder="Fyll i antal antilooper" name="antiloop">
-    <h4>Gorilla:</h4>
-    <input type="text" placeholder="Fyll i antal gorillor" name="gorilla"><br><br><br><br>
-
-    <h4>Kokosnöt:</h4>
-    <input type="text" placeholder="Fyll i antal kokosnötter" name="coconut">
-    <h4>Palmträd:</h4>
-    <input type="text" placeholder="Fyll i antal palmtäd" name="palm">
-    <h4>Gran:</h4>
-    <input type="text" placeholder="Fyll i antal granar" name="gran">
-    <h4>Ros:</h4>
-    <input type="text" placeholder="Fyll i antal rosor" name="ros">
-
-    <input type="submit">
+    <div class="inputContainer">
+        <div class="title"><h2>Djur</h2></div>
+        <div class="animals">
+            <div class="check">
+                <h4>Apa:</h4>
+                <input type="text" name="apa">
+            </div>
+            <div class="check">
+                <h4>Giraff:</h4>
+                <input type="text" name="giraff">
+            </div>
+            <div class="check">
+                <h4>Tiger:</h4>
+                <input type="text" name="tiger">
+            </div>            
+            <div class="check">
+                <h4>Lejon:</h4>
+                <input type="text" name="lejon">
+            </div>            
+            <div class="check">
+                <h4>Antiloop:</h4>
+                <input type="text" name="antiloop">
+            </div>            
+            <div class="check">
+                <h4>Gorilla:</h4>
+                <input type="text" name="gorilla">
+            </div>              
+        </div> 
+        <div class="title"><h2>Övrigt</h2></div>
+        <div class="other">
+            <div class="check">
+                <h4>Kokosnöt:</h4>
+                <input type="text" name="coconut">
+            </div>  
+            <div class="check">
+                <h4>Palmträd:</h4>
+                <input type="text" name="palm">
+            </div>  
+            <div class="check">
+                <h4>Gran:</h4>
+                <input type="text" name="gran">
+            </div>  
+            <div class="check">
+                <h4>Ros:</h4>
+                <input type="text" name="ros">
+            </div>
+        </div>
+    </div>
+        <input class="button" type="submit">
 </form>
 
 </body>

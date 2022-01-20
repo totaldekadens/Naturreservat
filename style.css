@@ -5,13 +5,107 @@
 body {
     margin: 0px;
     display: flex;
+    /* flex-direction: column; */
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    background-image: linear-gradient(to right, rgb(58, 111, 78), rgb(68, 130, 92), rgb(88, 167, 118), rgb(107, 201, 143));
+    
 }
 
+h2 {
+    margin-bottom: 0px;
+}
+
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.inputContainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.check { 
+    margin: 10px;}
+
+.animals {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.other {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+input {
+    display: flex;
+    height: 50px;
+    width: 60px;
+    font-size: 20px;
+    background-color: rgba(70, 135, 95, 0.72);
+    border-radius: 10px;
+    border-bottom: 3px solid rgb(0, 67, 0);
+    border-top: unset;
+    border-left: unset;
+    border-right: unset;
+    margin-top: 5px;
+    text-align: center;
+}
+
+input:focus {
+    background-color: rgb(115, 208, 151);
+}
+
+input:target {
+    background-color: rgb(115, 208, 151);
+}
+
+.button {
+    display: flex;
+    width: 100px;
+    margin-top: 20px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: rgb(84, 157, 112);
+}
+.hej{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.resetButton {
+    background-color: rgba(255, 255, 255, 0.254);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    width: 100px;
+    height: 70px;
+    text-decoration: none;
+    margin: 30px;
+}
+
+.resetButton:hover {
+    background-color: rgba(255, 255, 255, 0.885);
+}
 
 img {
+    margin-top: 20px;
     width: 200px;
     height: 200px;
     object-fit: contain;
@@ -20,4 +114,32 @@ img {
 
 h4 {
     margin-bottom: 0px;
+}
+
+@media screen and (max-width: 650px) {
+
+h1 {
+    font-size: 25px;
+}
+
+
+form { 
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+img {
+    width: 150px;
+    height: 150px;
+}
+
+}
+
+@media screen and (max-width: 450px) {
+
+img {
+    width: 110px;
+    height: 110px;
+}
+    
 }
