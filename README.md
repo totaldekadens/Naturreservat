@@ -23,3 +23,8 @@
 * Om man försöker gå ut på settings.php då man redan har skickat formuläret så ska sidan dö.
 * Från results.php ska man kunna starta om sitt naturreservat med en knapp.
 * I formuläret ska man kunna välja fler djur och växter: lejon, antilooper, gorillor, palmträn, granar och rosor som ska finnas i naturreservatet.
+
+
+
+
+link: http://www.missweb.se/Naturreservat/index.php
