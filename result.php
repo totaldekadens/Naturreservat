@@ -5,13 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="result.css">
     <script defer src="logic.js"></script>
     <title>Resultat</title>
 </head>
 <body>
-<!-- Reset Link -->
 <div class="hej">
-<a class="resetButton" href="result.php?click=true">RESET</a>
+<h1>Grattis till ditt nya naturreservat!</h1>
+<h4>Klicka på djuren för att ta del av deras namn och läte.</h4>
 </div>
 <?php
 
@@ -197,10 +198,6 @@ if($_SERVER["REQUEST_METHOD"]) {
                 $randomName = getName();
                 $ape = new Apa ('./assets/apa.png', $randomName); 
 
-                array_push($animals, $ape);
-
-                $_SESSION['renderanimal'] = $animals;
-                $animals = $_SESSION['renderanimal'];
             }
 
             for ($i=0; $i < $animals['amountGiraff'] ; $i++) { 
@@ -254,15 +251,6 @@ if($_SERVER["REQUEST_METHOD"]) {
                 echo '<img src="'.$contentRos.'">'; 
             }
 
-
-            error_log(serialize($animals)); 
-
-            error_log(serialize($_SESSION));
-
-/*             foreach($animals as $listOfAnimals){
-                $listOfAnimals ->render();
-            } */
-
         } else {
 
             header("Location: settings.php");
@@ -280,6 +268,11 @@ if($_SERVER["REQUEST_METHOD"]) {
 
 ?>
     
+    <!-- Reset Link -->
+<div class="hej">
+<a class="resetButton" href="result.php?click=true">Gör ett nytt reservat</a>
+</div>
+
 </body>
 </html>
 

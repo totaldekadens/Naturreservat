@@ -5,13 +5,20 @@
 body {
     margin: 0px;
     display: flex;
-    /* flex-direction: column; */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     background-image: linear-gradient(to right, rgb(58, 111, 78), rgb(68, 130, 92), rgb(88, 167, 118), rgb(107, 201, 143));
-    
+    color: rgba(0, 0, 0, 0.624);
 }
+
+h1 {
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+}
+
 
 h2 {
     margin-bottom: 0px;
@@ -71,12 +78,15 @@ input:target {
 
 .button {
     display: flex;
-    width: 100px;
+    width: 300px;
     margin-top: 20px;
+    margin-bottom: 50px;
     text-align: center;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    color: white;
+    font-weight: bold;
 }
 
 .button:hover {
@@ -86,22 +96,31 @@ input:target {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     width: 100%;
+    margin-bottom: 50px;
+    padding-right: 20px;
+    padding-left: 20px;
 }
 .resetButton {
-    background-color: rgba(255, 255, 255, 0.254);
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
-    width: 100px;
+    background-color: rgba(70, 135, 95, 0.72);
+    border-bottom: 3px solid rgb(0, 67, 0);
+    width: 300px;
     height: 70px;
     text-decoration: none;
     margin: 30px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+
 }
 
 .resetButton:hover {
-    background-color: rgba(255, 255, 255, 0.885);
+    background-color: rgb(84, 157, 112);
 }
 
 img {
@@ -110,6 +129,12 @@ img {
     height: 200px;
     object-fit: contain;
     cursor: pointer;
+}
+
+.header img {
+    margin: 0px;
+    margin-top: 20px;
+    height: 100px;
 }
 
 h4 {
@@ -141,5 +166,17 @@ img {
     width: 110px;
     height: 110px;
 }
-    
+
+form {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.button {
+    width: 220px;
+    font-size: 16px;
+}
+.resetButton {
+    width: 250px;
+}
 }
